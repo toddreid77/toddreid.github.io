@@ -1,0 +1,18 @@
+#container {
+	background: red;
+	color: white;
+	text-transform: uppercase;
+}
+
+#container h1 {
+	font-size: 32px;
+	text-decoration: underline;
+}
+
+#container h2 {
+	font-size: 24px;
+}
+
+#container h3 {
+	font-size: 18px;
+}
