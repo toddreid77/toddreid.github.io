@@ -1,11 +1,11 @@
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyA-HXfZ8iFz9Ke8hgIBEab-DBrR5cbsa54",
-    authDomain: "the-coffee-shop-f75fd.firebaseapp.com",
-    databaseURL: "https://the-coffee-shop-f75fd.firebaseio.com",
-    projectId: "the-coffee-shop-f75fd",
-    storageBucket: "",
-    messagingSenderId: "377468538359"
+    apiKey: "AIzaSyDabit4FOTQ2CSZ0vUh6HONuvwL3DUGuR0",
+    authDomain: "reservation-site-b42cc.firebaseapp.com",
+    databaseURL: "https://reservation-site-b42cc.firebaseio.com",
+    projectId: "reservation-site-b42cc",
+    storageBucket: "reservation-site-b42cc.appspot.com",
+    messagingSenderId: "147043216796"
   };
   firebase.initializeApp(config);
 
@@ -15,10 +15,33 @@ var database = firebase.database();
 // create reservationData object which will be populated with user input
 var reservationData = {};
 
-// set the day when an option is clicked on
+/* set the day when an option is clicked on
 $('.reservation-day li').on('click', function() {
   reservationData.day = $(this).text();
+});*/
+
+$('.reservation-day').on('change', function() {
+  reservationData.day = $(":selected").text();
 });
+
+
+$('.reservation-time').on('change', function() {
+  reservationData.time = $(":selected").text();
+});
+
+
+/* set the time when an option is clicked on
+$('#reservation-time select').on('change', function() {
+  reservationData.time = $(this).text();
+});
+
+$( "#reservation-time" ).change(function() {
+  reservationData.time = $(this).text();
+}); */
+
+
+
+
 
 // when submitted, the name data should be set
 // and all data should be sent to your database
@@ -54,6 +77,7 @@ function getReservations() {
       var context = {
         name: allReservations[reservation].name,
         day: allReservations[reservation].day,
+        time: allReservations[reservation].time,
         reservationId: reservation
       };
 
