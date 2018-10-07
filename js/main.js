@@ -15,7 +15,7 @@ var database = firebase.database();
 // create reservationData object which will be populated with user input
 var reservationData = {};
 
-/* set the day when an option is clicked on
+/* set the day when an option is clicked on - original js for
 $('.reservation-day li').on('click', function() {
   reservationData.day = $(this).text();
 });*/
@@ -34,11 +34,7 @@ $('.reservation-time').on('change', function() {
 $('#reservation-time select').on('change', function() {
   reservationData.time = $(this).text();
 });
-
-$( "#reservation-time" ).change(function() {
-  reservationData.time = $(this).text();
-}); */
-
+*/
 
 
 
