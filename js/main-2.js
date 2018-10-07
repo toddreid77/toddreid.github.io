@@ -16,7 +16,7 @@ var database = firebase.database();
 var reservationData = {};
 
 // set the day when an option is clicked on
-$('.reservation-day li').on('click', function() {
+$('#exampleFormControlSelect1 .day').on('click', function() {
   reservationData.day = $(this).text();
 });
 
