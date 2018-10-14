@@ -2,10 +2,7 @@
 
 
 $blue: #0D0628;
-
 $purple: #9A348E;
-
-
 $darkgreen: #379683;
 $pink: #FCA17D;
 $sand: #F9DBBD;
@@ -15,7 +12,7 @@ $ease: width 0.6s;
 
 html {
 	margin: 0 0;
-	padding: 60px 0 100px;
+	padding: 60px 0 0;
 }
 
 body {
@@ -43,6 +40,10 @@ h3, h4 {
 	margin: 30px 0;
 }
 
+.white {
+	color: white;
+}
+
 #toms {
 	width: 100%;
 	height: 500px;
@@ -50,19 +51,40 @@ h3, h4 {
 	background-size: cover;
 	margin: 30px 0;
 	
+	@media screen and (max-width: 992px) {
+		height: 375px;
+	}
+	
+	@media screen and (max-width: 767px) {
+		height: 250px;
+	}
+	
 }
 
 .blend {
 	opacity: 0.8;
 	transition: $ease;
-
 }
 
 
 #map {
 	width: 100%;
 	height: 500px;
-	margin: 0 0 80px 0;
+	margin: 0 0 0 0;
+	
+	@media screen and (max-width: 992px) {
+		height: 375px;
+	}
+	
+	@media screen and (max-width: 767px) {
+		height: 250px;
+	}
+
+}
+
+.info-window {
+	color: $purple;
+	font-size: 1.5rem;
 }
 
 .reservation-day ul {
@@ -77,9 +99,31 @@ h3, h4 {
 .form-inline .form-control, button, .dropdown-menu {
 	width: 100%;
 	margin: 0 0 2rem;
-	padding: 2rem;
-	text-align: center;
-	color: black;
+	padding: 16px 16px;
+	text-align: left;
+	color: $sand;
+	background: $purple;
+	border: 0px;
+	line-height: 1.5;
+	height: 50px;
+}
+
+.form-control {
+	color: $sand !important;
+	
+	&::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $sand;
+    opacity: 1; /* Firefox */
+}
+
+	&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	    color: $sand;
+	}
+	
+	&::-ms-input-placeholder { /* Microsoft Edge */
+	    color: $sand;
+	}
+	
 }
 
 .btn:not(:disabled):not(.disabled) {
@@ -87,13 +131,80 @@ h3, h4 {
 }
 
 .btn-primary {
-	background: $purple;
+	background: $sand;
 	color: $blue;
 	padding: 2rem;
+	border: 0px;
+	text-align: left;
+	font-family: 'Poppins', sans-serif;
+    padding: 30px 0 30px 20px;
+    height: 80px;
+ }
+
+/* custom select option styling */
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  padding: 0 0;
+  margin: 0 0 2rem;
+  border: 0px;
+  height: auto !important;
 }
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+.select-selected, input {
+  background-color: $purple;
+  border-radius: .25rem;
+
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: $sand;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: $purple;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 
 #quote-section {
 
+	padding: 80px 0 100px;
 	
 	.jerry {
 		transition: $ease;
@@ -115,12 +226,70 @@ h3, h4 {
 	
 }
 
-
+.gradient-bg {
+	background: linear-gradient(223deg, #9a348e, #0d0628);
+	background-size: 400% 400%;
+	
+	-webkit-animation: AnimationName 5s ease infinite;
+	-moz-animation: AnimationName 5s ease infinite;
+	animation: AnimationName 5s ease infinite;
+	
+	@-webkit-keyframes AnimationName {
+	    0%{background-position:0% 11%}
+	    50%{background-position:100% 90%}
+	    100%{background-position:0% 11%}
+	}
+	@-moz-keyframes AnimationName {
+	    0%{background-position:0% 11%}
+	    50%{background-position:100% 90%}
+	    100%{background-position:0% 11%}
+	}
+	@keyframes AnimationName { 
+	    0%{background-position:0% 11%}
+	    50%{background-position:100% 90%}
+	    100%{background-position:0% 11%}
+	}
+}
 
 input {
 	
 }
 
 
+@import 'open-times';
+
+
+.modal {
+	background: $purple;
+	color: $sand;
+	
+	h5 {
+		color: $pink;
+	    background: url(../images/headsot.png) center top no-repeat;
+	    padding: 120px 0 30px;
+	    background-size: 70px;
+   	}
+	
+	.modal-content {
+		border: 0px;
+		background: $purple;
+
+	}
+	
+	.close {
+		color: $pink;
+		margin-bottom: 0;
+		text-align: right;
+	}
+	
+	.btn {
+		background: $blue;
+	}
+	
+	.btn:not(:disabled):not(.disabled) {
+		padding: 0px;
+	}
+	
+}
 
 
